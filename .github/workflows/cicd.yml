@@ -18,7 +18,7 @@ jobs:
   - name: Build with Maven
     run: mvn clean install
   - name: Run SonarQube Scan
-    uses: sonarsource/sonarqube-scan-action@master
+    uses: sonarsource/sonarqube-scan-action@53c699c7d1222f54073076843797302f216cedc0
     with:
       projectBaseDir: .
       args: >
