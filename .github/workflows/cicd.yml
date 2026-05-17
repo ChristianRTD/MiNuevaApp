@@ -1,35 +1,30 @@
 name: Implement static code analysis for a Java App using SonarQube from GitHub Actions
-
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608  # v3.6.0
-
-      - name: Set up JDK
-        uses: actions/setup-java@cd89f46ac9d01407894225f350157564c9c7cee2  # v3.13.0
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
-      - name: Build with Maven
-        run: mvn clean install
-
-      - name: Run SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@aa49e3f409c33ca7afeb86695a62e4e2bf02f3cc  # v5.0.0
-        with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.organization=christianrtd
-            -Dsonar.projectKey=ChristianRTD_MiNuevaApp
-            -Dsonar.java.binaries=target/classes
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+ build:
+  runs-on: ubuntu-latest
+  steps:
+  - name: checkout code
+    uses: actions/checkout@v3
+  - name: Set up JDK
+    uses: actions/setup-java@v3
+    with:
+      distribution: 'adopt'
+      java-version: '11'
+  - name: Build with Maven
+    run: mvn clean install
+  - name: Run SonarQube Scan
+    uses: sonarsource/sonarqube-scan-action@master
+    with:
+      projectBaseDir: .
+      args: >
+        -Dsonar.organization=christianrtd
+        -Dsonar.projectKey=ChristianRTD_MiNuevaApp
+        -Dsonar.java.binaries=target/classes
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
