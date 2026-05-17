@@ -1,30 +1,29 @@
-name: Implement static code analysis for a Java App using SonarQube from GitHub Actions
+name: CI/CD Pipeline
+
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+
 jobs:
- build:
-  runs-on: ubuntu-latest
-  steps:
-  - name: checkout code
-    uses: actions/checkout@v3
-  - name: Set up JDK
-    uses: actions/setup-java@v3
-    with:
-      distribution: 'adopt'
-      java-version: '11'
-  - name: Build with Maven
-    run: mvn clean install
-  - name: Run SonarQube Scan
-    uses: sonarsource/sonarqube-scan-action@v4
-    with:
-      projectBaseDir: .
-      args: >
-        -Dsonar.organization=christianrtd
-        -Dsonar.projectKey=ChristianRTD_MiNuevaApp
-        -Dsonar.java.binaries=target/classes
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+  sonarcloud:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build project
+        run: mvn clean install
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
