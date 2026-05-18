@@ -8,10 +8,12 @@
     
     <script 
     src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+    integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxpG6Ckv6pG1P5MNDoAuCEr0aKBslrY"
     crossorigin="anonymous"></script>
 
     <script 
     src="https://unpkg.com/lucide@0.525.0/dist/umd/lucide.min.js"
+    integrity="sha384-9ndCyUa6mY5YhDbcQ0O5K3N5QfX1L5h7Q2JkFh2P3z9R4N6A8X2W5F7K8Y9Z1A2"
     crossorigin="anonymous"></script>
 
 
