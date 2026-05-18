@@ -118,6 +118,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="mt-6 border border-slate-800 rounded-xl overflow-hidden bg-slate-950/40 p-2">
+                        <img src="assets/dashboard-mockup.png" alt="Esquema de Arquitectura CI/CD" class="w-full h-auto rounded-lg opacity-90 hover:opacity-100 transition-opacity">
+                    </div>
                 </div>
 
                 <div class="border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 shadow-xl">
