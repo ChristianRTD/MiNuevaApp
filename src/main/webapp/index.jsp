@@ -5,8 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía de Integración SonarQube Cloud | DevOps Portal</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script 
+    src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+    crossorigin="anonymous"></script>
+
+    <script 
+    src="https://unpkg.com/lucide@0.525.0/dist/umd/lucide.min.js"
+    crossorigin="anonymous"></script>
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
@@ -220,7 +228,7 @@
     </main>
 
     <footer class="border-t border-slate-800 bg-slate-950 py-4 text-center text-xs text-slate-500">
-        &copy; 2026 DevSecOps Portal — Servidor de Aplicaciones Empresariales.
+        &copy; 2026 FhasfDev — Universidad Central del Ecuador — Dispositivos Móviles.
     </footer>
 
     <script>
